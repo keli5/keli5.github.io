@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+.dark-theme {
+    --bgcolor: #202020;
+    --textcolor1: lightgray;
+    --link: green;
+    --visited: darkgreen;
+}
+
+.light-theme {
+    --bgcolor: gainsboro;
+    --textcolor1: black;
+    --link: darkgreen;
+    --visited: green;
+}
+
+body {
+    background-color: var(--bgcolor);
+    color: var(--textcolor1);
+    font-family: "Open Sans", sans, sans-serif;
+}
+
+a {
+    color: var(--link);
+}
+
+a:visited {
+    color: var(--visited);
+}
+
