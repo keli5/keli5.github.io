@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>keli5</title>
+        <link rel="stylesheet" href="../css/main.css">
+    </head>
+    <body class="dark-theme">
+        <h1>welcome to my webbed site</h1>
+        <a href="https://github.com/keli5/">my github</a>
+        <p>i'll add onto this more when i care</p>
+
+        <button id="themebutton">switch theme</button>
+
+        <script> // FUCK
+            themebutton = document.getElementById("themebutton")
+
+            function switchtheme() {
+                theme = document.body.className
+            
+                if (theme == "dark-theme") {
+                    document.body.className = "light-theme"
+                } else if (theme == "light-theme") {
+                    document.body.className = "dark-theme"
+                } else {
+                    console.log("what the fuck")
+                }
+            }
+
+            themebutton.addEventListener("click", switchtheme)
+        </script>
+    </body>
+</html>

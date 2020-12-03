@@ -10,8 +10,8 @@
 .light-theme {
     --bgcolor: gainsboro;
     --textcolor1: black;
-    --link: darkgreen;
-    --visited: green;
+    --link: darkblue;
+    --visited: darkmagenta;
 }
 
 body {
