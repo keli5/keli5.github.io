@@ -11,10 +11,7 @@ for (let i = 0; i < pages.length; i++) {
     let curPageElement = pageIndex[pages[i]];
     curPageElement.href = pages[i];
 
-    if (pages[i] == document.location.pathname) {
-        curPageElement.className = 'currentpage';
-        console.log("t")
-    }
+    if (pages[i] == document.location.pathname) curPageElement.className = 'currentpage';
 
     curPageElement.innerHTML = curPageName;
     navbar.appendChild(curPageElement);
