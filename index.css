@@ -1,0 +1,138 @@
+:root {
+    --navHeight: 2em;
+
+    --h1size: 2.5em;
+    --h1GradientEnd: calc(var(--h1size) + 15em + 50vw);
+
+    --h2size: 1.75em;
+    --h2GradientEnd: calc(var(--h2size) + 4em);
+    --h2ProjGradientEnd: calc(var(--h2size) + 6em);
+}
+
+body {
+    background-color: rgb(37, 37, 37);
+    color: rgb(228, 228, 228);
+    font-family: "Golos Text", sans-serif;
+    font-size: 1.15em;
+    margin: 0;
+    padding-bottom: var(--navHeight)
+}
+
+main {
+    padding-left: 10vw;
+    padding-right: 10vw;
+    padding-top: 3vh;
+}
+
+h1 {
+    font-size: var(--h1size);
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0, rgb(255, 0, 221) var(--h1GradientEnd));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+h2 {
+    font-size: var(--h2size);
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0, rgb(140, 0, 255) var(--h2GradientEnd));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2.projectHeader {
+    font-size: var(--h2size);
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0, rgb(140, 0, 255) var(--h2ProjGradientEnd));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+a {
+    color:rgb(144, 233, 255)
+}
+
+a:visited {
+    color: rgb(205, 144, 255)
+}
+
+p {
+    padding-left: 0.5vw;
+}
+
+::marker {
+    content: "";
+    z-index: -999;
+}
+
+li::before {
+    content: "> ";
+    animation: blinker 1.75s step-start infinite;
+}
+
+@keyframes blinker {
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+nav {
+    height: var(--navHeight);
+    width: 100vw;
+    background-color: rgb(51, 51, 51);;
+    position: fixed;
+    bottom: 0;
+    z-index: 10;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.navItem {
+    display: inline-block;
+    padding: 8px;
+    text-decoration: none;
+    color:rgb(228, 228, 228)
+}
+
+.navItem:visited {
+    text-decoration: none;
+    color:rgb(228, 228, 228)
+}
+
+.navItem.active {
+    background-color: rgba(255, 137, 220, 0.315);
+}
+
+.navItem:hover {
+    background-color: rgba(218, 137, 255, 0.158);
+}
+
+img.navItem {
+    max-height: 1.25em;
+    float: left;
+}
+
+.linkbutton {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(105, 82, 101);
+    padding: 0.4em;
+    margin: 0.25em;
+    border-radius: 0.25em;
+    border: 1px outset black;
+}
+
+.linkbutton:visited {
+    text-decoration: none;
+    color: white;
+}
+
+.linkbutton:hover {
+    border: 1px ridge black;
+}
+
+img.display {
+    float: left;
+    height: 15vh;
+    margin-right: 1em;
+}
