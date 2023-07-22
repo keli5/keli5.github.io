@@ -7,6 +7,8 @@
     --h2size: 1.75em;
     --h2GradientEnd: calc(var(--h2size) + 4em);
     --h2ProjGradientEnd: calc(var(--h2size) + 6em);
+
+    --h3size: 1.225em;
 }
 
 body {
@@ -33,11 +35,67 @@ h1 {
     margin-bottom: 0;
 }
 
+h1.postHeader {
+    font-size: calc(var(--h1size) - .25em)
+}
+
 h2 {
     font-size: var(--h2size);
     /*background: linear-gradient(135deg, rgba(255,255,255,1) 0, rgb(140, 0, 255) var(--h2GradientEnd));
     background-clip: text;
     -webkit-text-fill-color: transparent;*/
+}
+
+h3 {
+    font-size: var(--h3size);
+    padding-left: 5pt;
+}
+
+div.postsContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: flex-start;
+    align-items: flex-start;
+}
+
+a {
+    text-decoration: none;
+}
+
+.postCardContent {
+    color: rgb(238, 238, 238);
+}
+
+.postDate {
+    color: rgb(181, 181, 181);
+}
+
+div.postCard {
+    border-radius: 8pt;
+    background-color: rgb(20, 20, 20);
+    padding: 12pt;
+    margin: 4pt;
+}
+
+a.postCard {
+    align-self: auto;
+    flex: 1 1 40%;
+}
+
+h3.postTitle, h4 {
+    padding-left: 5pt;
+    display: inline
+}
+
+h2.postTagline {
+    text-align: center;
+    padding-bottom: 16pt;
+}
+
+h4::before {
+    content: "— ";
 }
 
 h2.projectHeader {

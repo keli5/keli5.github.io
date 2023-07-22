@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="../../index.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Golos+Text&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />        
+    </head>
+    <body>
+        <nav>
+            <img src=../../assets/back.png class="navItem">
+            <a class="navItem" href="../index.html">Go back</a>
+        </nav>
+        <main>
+            <h1 class="postHeader">The Year of Linux on the Desktop</h1>
+            <h2 class="postTagline">Every year is the year of Linux on the desktop. But some year, right?</h2>
+            <h3>Prologue</h3>
+            <p>
+                Now, let me start off this post by saying, I'm a big fan of Linux! I just don't use it, since I play a lot of games,
+                and a fair portion of these games lie somewhere on a spectrum from "doesn't support Linux because the devs didn't build
+                it for Linux" to "the devs outright refuse to support Linux." However, unlike some Linux users, I enjoy playing games with
+                my friends, so simply not playing these games isn't really an option. Development on Windows with WSL works fine for me, but
+                I'm still a big fan of a lot of the philosophies and etc. behind Linux. Now, onto the content, shall we? 
+            </p>
+            <h3>Inconsistency</h3>
+            <p>
+                The first thing that strikes me about "Linux on the desktop" is that there are so <i>many</i> desktops. Linux has a very
+                diverse ecosystem. And don't get me wrong, that can be a good thing! But with Linux, there's so much diversity that with all
+                of the possible combinations of tools, desktops, window managers, underlying distros and everything else you can change up,
+                weird edge cases and bugs in combinations are <i>guaranteed.</i>
+            </p>
+            <p>
+                These are bugs that don't happen on any other OS, because of the single choice for things like the desktop and WM being
+                locked in. And if you're knowledgable about Computer, and have the time, determination and knowledge to fix these issues,
+                by all means, go right ahead! But for the average Joe who just wants to turn on his computer and play some video games
+                with his buddies or read the news, this is a major turnoff.
+            </p>
+            <p>
+                I don't think these inconsistencies are ever going to be "fixed," because this fragmentation seems to be what a lot of people
+                actually like Linux for. The absurd amount of choice and freedom you get is very nice - if you know what you're doing.
+            </p>
+
+            <h3>"But it has a GUI!"</h3>
+            <p>
+                Plenty of people, companies, etc. have built GUI frontends for package managers such as apt and pacman to ease things like
+                installing packages so you <i>don't have to use the terminal!</i> But, as I just outlined, the Linux ecosystem is diverse,
+                to a point that causes issues. These GUIs might work great in their intended environment!
+            </p>
+            <p>
+                But as soon as you want to use a different desktop, or a different distro, that GUI breaks horribly, or just doesn't exist anymore.
+                Anyone who used Ubuntu back in 2016 especially can testify to this, though that's an unfair comparison - 2016 is 7 years ago,
+                after all. But this issue is still around today, albeit much better than it used to be.
+            </p>
+            <p>
+                As an example, I've lost count of how many times I've downloaded a Cinnamon taskbar widget on a system that's not Mint and watched it
+                not work because it expects PulseAudio and I'm using PipeWire, or it uses some library that doesn't exist in that system's repos, or
+                some other configuration issue that would require anything from a few hours of debugging to entirely reconfiguring my system.
+            </p>
+            
+            <h3>Software compatibility</h3>
+            <p>
+                Oh, boy.<br>
+                Plenty of software works on Linux, yeah! We've got software that offers native Linux versions. We've got WINE and Proton to run 
+                Windows apps that don't offer Linux versions. We've got alternatives (see: Microsoft Office vs. LibreOffice / Google Docs) to
+                your Windows apps that can even read the files your Windows apps output.
+            </p>
+            <p>
+                Now try to play a non-Steam game with Wine or Proton.<br>
+                I don't know about you, but I've never had good experiences playing non-Steam Windows games on Linux. Maybe that's a very specific
+                problem, but I can't see it being that uncommon since the average Windows user has 1 launcher per 3 games at this point. I've lost
+                count of how much time I've lost to setting up WINE prefixes with different combinations of d3dcompiler DLLs and DXVK versions.
+            </p>
+            <p>
+                Even Proton doesn't do the job perfectly. Sure, for a lot of games, it works fine! What if you want to play a game that's not one
+                of those games? Let's take Garry's Mod as an example. Every update or two, you have to go and fuck around with the native Linux
+                version, or Proton 5 and 4, or whatever launch options you need this week to get the game to run. Also, if native is the preferred
+                version today, there's no main menu. At all. And this has been a known issue with the native version for <i>years.</i> They just
+                can't be bothered to fix it. Lovely.
+            </p>
+
+            <h3>The Catch-22</h3>
+            <p>
+                But you know why they don't bother to fix Linux support? It's because Linux users are the minority, by far. If we look at desktop
+                market share overall, <a href="https://gs.statcounter.com/os-market-share/desktop/worldwide">Linux isn't doing so hot.</a> Even if
+                we assume all those Unknown users are actually Linux users and not something else, that's still just over 15%. So now a problem makes
+                itself apparent.
+            </p>
+            <p>
+                Developers don't bother making games, building software, etc. for Linux because Linux users are the minority.<br>
+                Windows users don't want to switch to Linux because software compatibility is so poor since developers aren't bothering with Linux.<br>
+                Developers don't see any reason to build for Linux since it just takes extra time and effort, and all our users are on Windows anyways,
+                and the program probably works fine in WINE anyways (it doesn't), so why bother?<br>
+                This spiral can go on for an eternity, but it's 6 AM and I'm tired.
+            </p>
+
+            <h3>Conclusion</h3>
+            <p>If someone asked me, I'd say I like Linux overall. The customization and technicality of it is something I like. But that technicality
+                is still present in modern Linux, and that technicality isn't for everyone. I can't in good conscience recommend any Linux distro to
+                someone looking for a daily driver except <i>maybe</i> something like Mint or Ubuntu. And I really just can't see the Linux desktop
+                making it mainstream, not until at least some of these problems are fixed.
+            </p>
+            <p>
+                I guess that's it. Good morning, good afternoon, or good evening, wherever you may live.
+            </p>
+            <strong> - keli5_letters </strong>
+            <br>
+            <br>
+        </main>
+    </body>
+</html>
