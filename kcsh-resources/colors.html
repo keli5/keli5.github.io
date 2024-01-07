@@ -51,7 +51,7 @@
 
         // Generate header row with background colors
         backgroundColors.forEach((bgColor, bgIdx) => {
-            document.write(`<th style="background-color:${bgColor}">${bgColor} bg: ${backgroundEscs[bgIdx]}</th>`);
+            document.write(`<th style="background-color:${bgColor}">${bgColor} bg<br /><span class="tinyer">${backgroundEscs[bgIdx]}</span></th>`);
         });
 
         document.write('</tr>');
@@ -59,7 +59,7 @@
         // Generate table rows with foreground and background color combinations
         foregroundColors.forEach((fgColor, fgIdx) => {
             document.write('<tr>');
-            document.write(`<th style="background-color:${fgColor}">${fgColor} fg: ${foregroundEscs[fgIdx]}</th>`);
+            document.write(`<th style="background-color:${fgColor}">${fgColor} fg<br /><span class="tinyer">${foregroundEscs[fgIdx]}</span></th>`);
 
             backgroundColors.forEach((bgColor, bgIdx) => {
                 document.write(`<td style="background-color:${bgColor};color:${fgColor}">${fgColor} on ${bgColor}<br />
