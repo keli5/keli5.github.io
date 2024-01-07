@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KCSH color resources</title>
+    <link rel="stylesheet" href="../index.css">
+    <style>
+        table {
+            border-collapse: collapse;
+            max-width: 95vw;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        .tinyer {
+            font-size: 1em;
+            font-family: monospace;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Color resources</h1>
+    <strong class="warning">These colors depend somewhat on your terminal's predetermined colors/color theme. Your
+        mileage may vary.</strong>
+    <p>The second, monospaced line in each table cell is the escape sequences you can use in kcsh_config.ini - or
+        anything that
+        supports ANSI escape sequences - to get the desired color combination. The first sequence is the foreground
+        color and
+        the second is the background color.
+    </p>
+    <p>Scroll further down for a calculator for RGB color codes for terminals that support it.</p>
+
+    <script>
+        const foregroundColors = ["black", "red", "green", "yellow", "blue", "magenta", "cyan", "white"];
+        const backgroundColors = ["black", "red", "green", "yellow", "blue", "magenta", "cyan", "white"];
+        const foregroundEscs = ["\\033[30m", "\\033[31m", "\\033[32m", "\\033[33m", "\\033[34m", "\\033[35m", "\\033[36m", "\\033[37m"];
+        const backgroundEscs = ["\\033[40m", "\\033[41m", "\\033[42m", "\\033[43m", "\\033[44m", "\\033[45m", "\\033[46m", "\\033[47m"];
+
+
+        document.write('<table>');
+        document.write('<tr><th></th>');
+
+        // Generate header row with background colors
+        backgroundColors.forEach(bgColor => {
+            document.write(`<th style="background-color:${bgColor}">${bgColor}</th>`);
+        });
+
+        document.write('</tr>');
+
+        // Generate table rows with foreground and background color combinations
+        foregroundColors.forEach((fgColor, fgIdx) => {
+            document.write('<tr>');
+            document.write(`<th style="background-color:${fgColor}">${fgColor}</th>`);
+
+            backgroundColors.forEach((bgColor, bgIdx) => {
+                document.write(`<td style="background-color:${bgColor};color:${fgColor}">${fgColor} on ${bgColor}<br />
+                <span class="tinyer">${foregroundEscs[fgIdx]}${backgroundEscs[bgIdx]}</span></td>`);
+            });
+
+            document.write('</tr>');
+        });
+
+        document.write('</table>');
+    </script>
+
+    <h2>Color calculator</h2>
+    <p></p>
+    <label for="inputcolor">Color: </label><input type="color" id="inputcolor" /><br>
+    <div><p>Foreground truecolor code:</p><input type="text" class="tinyer" id="truecolorFg"></span></div>
+    <div><p>Background truecolor code:</p><input type="text" class="tinyer" id="truecolorBg"></span></div>
+
+    <div><p>Foreground 256color code:</p><input type="text" class="tinyer" id="256colorFg"></span></div>
+    <div><p>Background 256color code:</p><input type="text" class="tinyer" id="256colorBg"></span></div>
+
+    <script>
+        const hexToRGB = hex => {
+            let alpha = false,
+                h = hex.slice(hex.startsWith('#') ? 1 : 0);
+            if (h.length === 3) h = [...h].map(x => x + x).join('');
+            else if (h.length === 8) alpha = true;
+            h = parseInt(h, 16);
+            return {
+                "red": (h >>> (alpha ? 24 : 16)),
+                "green": ((h & (alpha ? 0x00ff0000 : 0x00ff00)) >>> (alpha ? 16 : 8)),
+                "blue": ((h & (alpha ? 0x0000ff00 : 0x0000ff)) >>> (alpha ? 8 : 0))
+            }
+        };
+        function rgbToAnsi256(r, g, b) { // https://stackoverflow.com/questions/15682537/ansi-color-specific-rgb-sequence-bash
+    // we use the extended greyscale palette here, with the exception of
+    // black and white. normal palette only has 4 greyscale shades.
+    if (r === g && g === b) {
+        if (r < 8) {
+            return 16;
+        }
+
+        if (r > 248) {
+            return 231;
+        }
+
+        return Math.round(((r - 8) / 247) * 24) + 232;
+    }
+
+    var ansi = 16
+        + (36 * Math.round(r / 255 * 5))
+        + (6 * Math.round(g / 255 * 5))
+        + Math.round(b / 255 * 5);
+
+    return ansi;
+}
+
+
+        const inputcolor = document.getElementById("inputcolor")
+        colorize()
+
+        inputcolor.addEventListener("change", event => {
+            colorize()
+        })
+
+        function colorize() {
+            rgb = hexToRGB(inputcolor.value)
+            c256val = rgbToAnsi256(rgb.red, rgb.green, rgb.blue)
+            document.getElementById("truecolorFg").value = `\\033[38;2;${rgb.red};${rgb.green};${rgb.blue}m`
+            document.getElementById("truecolorBg").value = `\\033[48;2;${rgb.red};${rgb.green};${rgb.blue}m`
+
+            document.getElementById("256colorBg").value = `\\033[48;5;${c256val}m`
+            document.getElementById("256colorFg").value = `\\033[38;5;${c256val}m`
+        }
+    </script>
+
+</body>
+
+</html>

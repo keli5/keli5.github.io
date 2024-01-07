@@ -194,3 +194,13 @@ img.display {
     height: 15vh;
     margin-right: 1em;
 }
+
+strong.warning {
+    display: block;
+    text-align: center;
+    margin: auto;
+    background-color: rgba(219, 219, 20, 0.39);
+    padding: 4pt;
+    width: 75%;
+    border-radius: 6pt;
+}
