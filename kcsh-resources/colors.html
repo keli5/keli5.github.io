@@ -73,7 +73,7 @@
     </script>
 
     <h2>Color calculator</h2>
-    <p></p>
+    <p>Yes, they're formatted slightly different to work with kcsh's configuration format</p>
     <label for="inputcolor">Color: </label><input type="color" id="inputcolor" /><br>
     <div><p>Foreground truecolor code:</p><input type="text" class="tinyer" id="truecolorFg"></span></div>
     <div><p>Background truecolor code:</p><input type="text" class="tinyer" id="truecolorBg"></span></div>
@@ -128,11 +128,11 @@
         function colorize() {
             rgb = hexToRGB(inputcolor.value)
             c256val = rgbToAnsi256(rgb.red, rgb.green, rgb.blue)
-            document.getElementById("truecolorFg").value = `\\e[38;2;${rgb.red};${rgb.green};${rgb.blue}m`
-            document.getElementById("truecolorBg").value = `\\e[48;2;${rgb.red};${rgb.green};${rgb.blue}m`
+            document.getElementById("truecolorFg").value = `\\e[38:2:${rgb.red}:${rgb.green}:${rgb.blue}m`
+            document.getElementById("truecolorBg").value = `\\e[48:2:${rgb.red}:${rgb.green}:${rgb.blue}m`
 
-            document.getElementById("256colorBg").value = `\\e[48;5;${c256val}m`
-            document.getElementById("256colorFg").value = `\\e[38;5;${c256val}m`
+            document.getElementById("256colorBg").value = `\\e[48:5:${c256val}m`
+            document.getElementById("256colorFg").value = `\\e[38:5:${c256val}m`
         }
     </script>
 
